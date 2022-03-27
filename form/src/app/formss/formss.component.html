@@ -1,0 +1,73 @@
+<div>
+    <form class="content" [formGroup]="registerForm" (ngSubmit)="submitdata()">
+        <h3 class="text-center">Register form</h3>
+        <div class="row">
+            <div class="mt-2     col-lg-4 col-4    ">
+                <label for="firstname">First Name<span class="ml-1 mandatory">*</span></label>
+                <input type="text" formControlName="firstname" class="form-control" placeholder=" firstname" />
+                <div *ngIf="firstname.invalid ">
+                    <span *ngIf="firstname.errors?.required">First Name is required</span>
+                    <span *ngIf="firstname.errors?.pattern">Only Enter Alphabets</span>
+                </div>
+            </div>
+            <br>
+            <div class="mt-2     col-lg-4 col-4">
+                <label for="lastname">Last Name</label>
+                <input type="text" formControlName="lastname" class="form-control" placeholder=" lastname" />
+                <div *ngIf="lastname.invalid ">
+                    <span *ngIf="lastname.errors?.required">Last Name is required</span>
+                    <span *ngIf="lastname.errors?.pattern">Only Enter Alphabets</span>
+                </div>
+            </div>
+            <div class=" mt-2    col-lg-4 col-4">
+                <label for="username">User Name<span class="ml-1 mandatory">*</span></label>
+                <input type="text" formControlName="username" class="form-control" placeholder="username" />
+                <span *ngIf="username.invalid ">
+                    <span *ngIf="username.errors?.required">User name is required</span>
+                    <span *ngIf="username.errors?.pattern">Only Enter Alphabets</span>
+                </span>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class=" mt-2    col-lg-4 col-4">
+                <label for="email">Email Id <span class="ml-1 mandatory">*</span></label>
+                <input type="email" formControlName="email" class="form-control" placeholder="Email" />
+                <div *ngIf="email.invalid ">
+                    <span *ngIf="email.errors?.required">Mail Id required</span>
+                    <span *ngIf="email.errors?.email">Please enter valid email id</span>
+                </div>
+            </div>
+            <div class="mt-2     col-lg-4 col-4">
+                <label for="number">Contact Number</label>
+                <input type="text" maxlength="12" minlength="10" formControlName="number" class="form-control"
+                    placeholder="Mobile number" />
+                <div>
+                    <div *ngIf="number.invalid ">
+                        <span *ngIf="number.errors?.required">Mobile Number is required</span>
+                        <span *ngIf="number.errors?.pattern">Please Enter valid mobile Number</span>
+                    </div>
+                </div>
+            </div>
+            <div class=" mt-2    col-lg-4 col-4">
+                <label for="password">Password<span class="mr-100 mandatory">*</span></label>
+                <input type="password" minlength="8" formControlName="password" class="form-control"
+                    placeholder="password"  />
+                 <div *ngIf="password.invalid ">
+                    <span *ngIf="password.errors?.required">Password is required</span>
+                    <span *ngIf="password.errors?.pattern">Invalid Password </span>
+                </div> 
+            </div>
+        </div>
+        <div class="row justify-content-end">
+            
+            <div class="mt-2     col-lg-3 col-">
+                <button class="btn" id="i" (click)="onee()" [disabled]="!registerForm.invalid"> submit</button>
+            </div>
+
+        </div>
+
+
+    </form>
+    
+</div>
